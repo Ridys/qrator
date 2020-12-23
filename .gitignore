@@ -1,0 +1,20 @@
+# Python cache
+*.pyc
+__pycache__
+# Application local settings
+settings_local.py
+# User images and collected static, tmp dir
+media
+/static/
+/tmp/
+# Code editors and env
+.idea
+.vscode
+/env
+*.sublime-project
+# Other
+.DS_Store
+Thumbs.db
+# Jenkins tests
+/reports
+.coverage
