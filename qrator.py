@@ -28,11 +28,15 @@ class DiscordClient(discord.Client):
                     message.guild.id, message.channel.id, message.id)
                 reposts.append({"content": content, "url": attachment.url})
             # отправляем картинки в канал скриншотов
-            for pic in reposts:
-                forward = self.get_channel(FORWARD_CHANNEL_ID)
-                embed = discord.Embed()
-                embed.set_image(url=pic['url'])
-                await forward.send(content=pic['content'], embed=embed)
+            if reposts:
+                # реакция на оригинальное сообщение
+                await message.add_reaction("👀")
+                # пересылаем сообщение
+                for pic in reposts:
+                    forward = self.get_channel(FORWARD_CHANNEL_ID)
+                    embed = discord.Embed()
+                    embed.set_image(url=pic['url'])
+                    await forward.send(content=pic['content'], embed=embed)
 
 client = DiscordClient()
 client.run(TOKEN)
