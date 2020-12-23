@@ -4,9 +4,7 @@ __pycache__
 # Application local settings
 settings_local.py
 # User images and collected static, tmp dir
-media
-/static/
-/tmp/
+data.db
 # Code editors and env
 .idea
 .vscode
@@ -15,6 +13,3 @@ media
 # Other
 .DS_Store
 Thumbs.db
-# Jenkins tests
-/reports
-.coverage
